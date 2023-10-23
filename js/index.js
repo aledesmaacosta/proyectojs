@@ -103,8 +103,27 @@ if (pesoForm >= 50 && pesoForm <=70){
     alert("Te recomendamos el Plan Intermedio")
 } 
 
+const planes = [
+    { nombre: "Plan Básico - 4w", precio: 1500 },
+    { nombre: "Plan Intermedio - 8w", precio: 2500 },
+    { nombre: "Plan Avanzado - 12w", precio: 4000 },
+   
+];
 
+const contenido = document.querySelector("#contenido");
 
+    
+planes.forEach((plan) => {
+    console.log(plan.nombre);
+    console.log(plan.precio);
+});
 
+let lista = document.createElement("ul");
+lista.classList.add("lista");
+
+for (plan of planes) {
+    lista.innerHTML += `<li class="lista-item"> ${plan}</li>`
+
+}
 
 
