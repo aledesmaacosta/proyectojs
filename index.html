@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body class="body">
+
     <h1>Calculadora de Pérdida de Peso</h1>
     <h2>Para llegar a tu peso de forma saludable recomendamos:</h2>
     <h2>Cuando hagas el calculo te vamos a estar dando un margen equivalente al peso agua, para contrarrestar el mismo cuando te peses 😊</h2>
@@ -17,42 +18,40 @@
         <li> 🛌 descanso apropiado </li>
     </ul>
 
-    <h2>CONTACTO</h2>
-    <p>Tu plan ideal <br>
-    
+//form
 
-    <form action="" method="post">
-        <fieldset>
-            <div class="form-plan"><legend>SOLICITA CONTACTO</legend></div>
-            <div class="form-plan"><label for="nombre">
-                <span>NOMBRE</span>
-                <input type="text" id="nombre" placeholder="tu nombre aquí">   
-            </label>
-        </div>
-        <div class="form-plan">   
-        <label for="EDAD">
-                <span>edad</span>
-                <input type="edad" id="edad" placeholder="tu edad aquí">
-            </label>
-        </div> 
-        <div class="form-plan">
-            <label for="PESO">
-                <span>Peso</span>
-                <input type="peso" id="peso" placeholder="tu Peso aquí">
-            </label>
-        </div>
-            <button id="enviar" class="btn">Enviar</button>
-        </div>
-            
-        </fieldset>
-    </form>
-</p>
+<form id="form" action="" method="get">
+    <div id="error"></div>
+    <div>
+        <label for="nombre">Nombre</label>
+        <input id="nombre" name="nombre" type="text">
+    </div>
+    <div>
+        <label for="kilo">Peso</label>
+        <input id="kilo" name="kilo" type="number">
+    </div>
+    <div>
+        <label for="edad">Edad</label>
+        <input id="edad" name="edad" type="number">
+    </div>
+    <button type="submit">Enviar</button>
 
-<div><h2 class="texto-color">Nuestros planes</h2>
+</form>
+
+
+<div id="contenido">
+    <p>Nuestros planes</p>
+    <ul id="lista" class="lista">
+
+</ul>
+        
+    <!--
         <p>¿Elegí el que mejor se adapte a tus necesidades!</p>
         <p>Plan 1 - Duración 4 semanas - Precio $1500</p>
         <p>Plan 2 - Duración 10 semanas - Precio $2800</p>
         <p>Plan 3 - Duración 16 semanas - Precio $3500</p>
+    
+-->
 </div>
     <hr>
     <p>Ejecuta <strong>DevTools</strong>, y escribe en la consola JS la función: <strong>simularPerdidaDePeso()</strong></p>

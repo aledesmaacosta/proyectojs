@@ -1,7 +1,7 @@
+const body = document.querySelector(".body")
+
 const pesoAgua = 1.75
 
-const plan1JSON = JSON.stringify(plan1);
-localStorage.setItem("plan1", plan1JSON);
 
 const plan1LocalStorage = localStorage.getItem("plan1");
 const plan1Objeto = JSON.parse(plan1LocalStorage)
@@ -15,6 +15,9 @@ const plan3 = new Plan("Plan Aanzado", "12 semanas", 4000);
 localStorage.setItem("plan1", 1500);
 localStorage.setItem("plan2", 2500);
 localStorage.setItem("plan3", 4000);
+
+const plan1JSON = JSON.stringify(plan1);
+localStorage.setItem("plan1", plan1JSON);
 
 function calcularPerdidaDePeso(inicial, meses, perdido) {
     console.log("Detalle de Bajada 🏋️")
@@ -60,7 +63,7 @@ const plan3 = {
 }*/
 
 function Plan(nombre, duracion, precio){
-    this.nombre = nombre;
+    this.nombre = nombre; 
     this.duracion = duracion;
     this.precio = precio;
 
@@ -72,46 +75,42 @@ const plan3 = new Plan("Plan Aanzado", "12 semanas", 4000);*/
 
 //formulario
 
-const nombreForm = document.querySelector("#nombre");
-const edadForm = document.querySelector("#edad");
-const pesoForm = document.querySelector("#peso");
-
-
-nombreForm.addEventListener("input", () => {
-    console.log(nombreForm.value);
-})
-
-edadForm.addEventListener("input", () => {
-    console.log(edadForm.value);
-})
-
-pesoForm.addEventListener("input", () => {
-    console.log(pesoForm.value);
-    
-})
-
-const enviar = document.querySelector("#enviar");
-enviar.addEventListener("click", enviarPlan);
-
-function enviarPlan() {
-    alert("En breve te indicaremos el plan recomendado");
-}
-
-if (pesoForm >= 50 && pesoForm <=70){
-    alert("Te recomendamos el Plan Básico")
-} if (pesoForm >=71 && pesoForm <=85){
-    alert("Te recomendamos el Plan Intermedio")
-} 
 
 const planes = [
-    { nombre: "Plan Básico - 4w", precio: 1500 },
-    { nombre: "Plan Intermedio - 8w", precio: 2500 },
-    { nombre: "Plan Avanzado - 12w", precio: 4000 },
+    { id: "Plan Básico", precio: 1500 },
+    { id: "Plan Intermedio", precio: 2500 },
+    { id: "Plan Avanzado", precio: 4000 },
    
 ];
 
-const contenido = document.querySelector("#contenido");
+const preguntarPlanes = () => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(preguntarPlanes);
+        }, 3000);
+    }
+    )
+}
 
+let guia = [];
+const precios = document.querySelector("#lista");
+
+function verPlanes(array) {
+    array.forEach(item => {
+        const li = document.createElement("li");
+        li.id = item.id;
+        li.textContent = `${item.nombre}`
+
+        lista.append(li);
+    });
+}
+
+preguntarPlanes()
+    .then((res) => {
+        guia = res;
+        verPlanes(planes);
+
+    })
     
 planes.forEach((plan) => {
     console.log(plan.nombre);
@@ -122,8 +121,36 @@ let lista = document.createElement("ul");
 lista.classList.add("lista");
 
 for (plan of planes) {
-    lista.innerHTML += `<li class="lista-item"> ${plan}</li>`
-
+    lista.innerHTML += `<li class="lista"> ${planes}</li>`
 }
 
+body.append(lista);
+
+let peso = 50
+
+console.log( peso >= 100 ? "Plan 16 semanas" : "Plan 8 semanas" );
+
+const nombre = document.getElementById("nombre")
+const kilo = document.getElementById("kilo")
+const form = document.getElementById("form")
+const error1 = document.getElementById("error")
+
+form.addEventListener('submit', (e) => {
+
+    let mensaje = []
+    if (nombre.value === "" || nombre.value == null){
+        mensaje.push("Por favor ingrese nombre")
+    }
+
+    if (mensaje.length >0) {
+        e.preventDefault()
+        error1.innerText = mensaje.join(", ")
+    }
+    
+})
+
+
+const intervalo = setInterval(() => {
+    console.log("¿Necesitas ayuda?")
+}, 5000);
 
