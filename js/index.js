@@ -1,5 +1,22 @@
 const body = document.querySelector(".body")
 
+const url = 'https://weatherapi-com.p.rapidapi.com/current.json?q=53.1%2C-0.13';
+const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': '6c763a3c28msh86c449b51963397p153d77jsn4e4cf165fd3d',
+		'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'
+	}
+};
+
+try {
+	const response = await fetch(url, options);
+	const result = await response.text();
+	console.log(result);
+} catch (error) {
+	console.error(error);
+}
+
 const pesoAgua = 1.75
 
 
