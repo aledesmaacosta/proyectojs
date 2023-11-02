@@ -9,6 +9,13 @@ const options = {
 	}
 };
 
+
+fetch("https://open-weather-map27.p.rapidapi.com/weather", options)
+    .then(res => res.json())
+    .then(response => {
+        console.log(response)
+    })
+
 try {
 	const response = await fetch(url, options);
 	const result = await response.text();
@@ -16,6 +23,8 @@ try {
 } catch (error) {
 	console.error(error);
 }
+
+
 
 const pesoAgua = 1.75
 
