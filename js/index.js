@@ -1,20 +1,13 @@
 const body = document.querySelector(".body")
 
-const url = 'https://weatherapi-com.p.rapidapi.com/current.json?q=53.1%2C-0.13';
+const url = 'https://vision-weather-map.p.rapidapi.com/Current-weather/?q=dallas%2Cus&lat=0&lon=0&lang=null&units=imperial&mode=json';
 const options = {
 	method: 'GET',
 	headers: {
 		'X-RapidAPI-Key': '6c763a3c28msh86c449b51963397p153d77jsn4e4cf165fd3d',
-		'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'
+		'X-RapidAPI-Host': 'vision-weather-map.p.rapidapi.com'
 	}
 };
-
-
-fetch("https://open-weather-map27.p.rapidapi.com/weather", options)
-    .then(res => res.json())
-    .then(response => {
-        console.log(response)
-    })
 
 try {
 	const response = await fetch(url, options);
@@ -23,6 +16,13 @@ try {
 } catch (error) {
 	console.error(error);
 }
+
+
+fetch("https://vision-weather-map.p.rapidapi.com/Current-weather/?q=dallas%2Cus&lat=0&lon=0&lang=null&units=imperial&mode=json", options)
+    .then(res => res.json())
+    .then(response => {
+        console.log(response)
+    })
 
 
 
